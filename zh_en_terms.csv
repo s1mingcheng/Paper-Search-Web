@@ -1,0 +1,88 @@
+# 本地中英学术词库：用于生成英文译法和同义词
+# en 与 synonyms 都可以使用“|”分隔多个表达；同义词会自动加入检索式。
+zh,en,synonyms,domain
+人工智能,artificial intelligence,AI|machine intelligence,计算机
+机器学习,machine learning,ML|statistical learning,计算机
+深度学习,deep learning,deep neural networks|deep neural network,计算机
+神经网络,neural network,neural networks|artificial neural network,计算机
+自然语言处理,natural language processing,NLP|natural language understanding,计算机
+计算机视觉,computer vision,machine vision|image understanding,计算机
+大型语言模型,large language model,large language models|LLM|LLMs,计算机
+生成式人工智能,generative artificial intelligence,generative AI|GenAI,计算机
+推荐系统,recommender system,recommendation system|recommender systems,计算机
+数据挖掘,data mining,knowledge discovery in databases|KDD,计算机
+数据分析,data analysis,analytics|data analytics,数据科学
+大数据,big data,large-scale data,数据科学
+算法,algorithm,algorithms,计算机
+模型,model,models|modelling|modeling,通用
+优化,optimization,optimisation|optimize|optimise,数学
+预测,prediction,forecasting|predictive modeling,数据科学
+分类,classification,classifier|classification model,数据科学
+回归,regression,regression analysis|regression model,统计
+聚类,clustering,cluster analysis|cluster analysis,数据科学
+仿真,simulation,simulations|simulation modeling,工程
+统计,statistics,statistical analysis,数学
+概率,probability,probabilistic|probability theory,数学
+数学建模,mathematical modeling,mathematical modelling|mathematical model,数学
+风险评估,risk assessment,risk evaluation|risk analysis,管理
+系统评价,systematic review,systematic reviews|systematic literature review,研究方法
+文献综述,literature review,literature reviews|narrative review,研究方法
+元分析,meta-analysis,meta analysis|meta-analytic,研究方法
+调查,survey,surveys|questionnaire survey,研究方法
+问卷,questionnaire,questionnaires|survey instrument,研究方法
+实验,experiment,experiments|experimental study,研究方法
+可持续发展,sustainable development,sustainability|sustainable growth,环境
+碳排放,carbon emission,carbon emissions|CO2 emission|carbon footprint,环境
+碳中和,carbon neutrality,net zero|carbon neutrality target,环境
+气候变化,climate change,global warming|climate variability,环境
+能源,energy,energy systems|power,能源
+可再生能源,renewable energy,renewables|clean energy,能源
+环境保护,environmental protection,environmental conservation|environmental management,环境
+城市,urban,city|cities|urban area,城市研究
+城镇化,urbanization,urbanisation|urban development,城市研究
+交通,transportation,transport|traffic|mobility,交通
+供应链,supply chain,supply chains|supply-chain,管理
+物流,logistics,logistic operations|freight logistics,管理
+高等教育,higher education,tertiary education|postsecondary education|university education,教育
+高校,higher education institution,university|college|higher education institutions,教育
+大学,university,universities|college,教育
+教育,education,educational|learning,教育
+学习,learning,study|learner,教育
+教学,teaching,instruction|pedagogy,教育
+课程,curriculum,course|curricula|course design,教育
+教师,teacher,teachers|faculty|educator,教育
+学生,student,students|learner|learners,教育
+学习评价,learning assessment,assessment of learning|learning evaluation|assessment for learning,教育
+教育评价,educational evaluation,education evaluation|educational assessment|evaluation of education,教育
+学业评价,academic assessment,academic evaluation|student assessment,教育
+教学质量,teaching quality,quality of teaching|instructional quality,教育
+教学效果,teaching effectiveness,instructional effectiveness|learning outcomes,教育
+核心素养,core competency,core competencies|key competencies,教育
+在线教育,online education,online learning|e-learning|distance education,教育
+混合式教学,blended learning,blended teaching|hybrid learning,教育
+高等教育评价,higher education evaluation,higher education assessment|evaluation of higher education,教育
+医疗,healthcare,health care|medical care,医学
+健康,health,wellness|public health,医学
+医学,medicine,medical science|clinical medicine,医学
+临床,clinical,clinical practice|clinical research,医学
+疾病,disease,illness|disorder,医学
+公共卫生,public health,population health|public health research,医学
+流行病学,epidemiology,epidemiological|epidemiologic,医学
+护理,nursing,nursing care|nurse,医学
+患者,patient,patients|patient care,医学
+心理健康,mental health,psychological health|wellbeing,医学
+经济,economy,economics|economic,经济
+金融,finance,financial|financial economics,经济
+管理,management,administration|managerial,管理
+创新,innovation,innovative|technological innovation,管理
+政策,policy,policies|public policy,社会科学
+治理,governance,public governance|governance mechanism,社会科学
+社交媒体,social media,social networking sites|social network,社会科学
+网络安全,cybersecurity,cyber security|network security,计算机
+隐私,privacy,data privacy|privacy protection,计算机
+安全,security,safety|secure,计算机
+农业,agriculture,agricultural|farming,农业
+生物,biology,biological|biomedical,生物
+材料,materials,material science|advanced materials,材料
+物理,physics,physical|physical science,物理
+化学,chemistry,chemical|chemical science,化学

@@ -1,0 +1,97 @@
+{
+  "project": "paper-search-web",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "af9fb70b5316b11453bfc046ae182124a0a3a7ab5e2882e6a002df33c2230356"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "b5cb328e15ccd9dbfa6d5e86091d1b61b1abfa69e458784d0f3c024b90c5ec16"
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "sha256": "e4db664642411d23dedc579c4df45a95e61ae61c9546f0f6c10dba3120f9fb5f"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "aacc9e40416c4550424b75efd5cb0e4e2281be0dc39d7cde8cd48741d0c80e72"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e2ccc0e730d5a01a7bebdd8e52443c27a8270f8b7a5cae51a4b1259945e521de"
+    },
+    {
+      "path": "app.py",
+      "sha256": "9ca9b416d4babe6578b9feedabf8e287ee08fd57dea7d39b6465ca505003ad0d"
+    },
+    {
+      "path": "data/journal_metrics.example.csv",
+      "sha256": "79da23381c42e88656f33fbfab62a416d586cb6fd0779b84c42f8f08add6fadb"
+    },
+    {
+      "path": "data/zh_en_terms.csv",
+      "sha256": "5751bc89cee99ebc3f17c988063515b69c41a93b3624e0f307787c8aefc8c9da"
+    },
+    {
+      "path": "deepseek.py",
+      "sha256": "930d062c1714bbc5eb24cc63d1484751b5d576ee6310e0b70b0ece103999c85e"
+    },
+    {
+      "path": "docs/demo-recording-script.md",
+      "sha256": "fc0a8731fc493eb1837cdd44c539cd95cd3cf1c21cd2c7fe6e6c353c07897f7b"
+    },
+    {
+      "path": "docs/github-upload.md",
+      "sha256": "d9200192c28d47efce5cd12b174083247727c76cf7511caf39b4016c40f31e75"
+    },
+    {
+      "path": "docs/search-enhancements.md",
+      "sha256": "60cf8a73e58496af5e9be20545f03affeb3802f2657332125c98367d15e3c54c"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "54146c022a303bbb425bda508870c73ebaaa8aad9e7b2c899b961e8a555a7917"
+    },
+    {
+      "path": "scripts/package_release.py",
+      "sha256": "2c99dcf69d5593e3ed25491465817f0b2b07c803e65d95bf4ba963dc03e86dfd"
+    },
+    {
+      "path": "start.ps1",
+      "sha256": "dee5599283459d786125189457bb5496c519b7060cc576a63a38d14119dfc822"
+    },
+    {
+      "path": "static/app.js",
+      "sha256": "196ed9af47c0d7f996963e041c2634c5f043f296b1cc7d3886fa0a9b49ac2e72"
+    },
+    {
+      "path": "static/favicon.svg",
+      "sha256": "d3ebcfbe74948db1ef6cc99b18950aef1d7eca6300acc6b5c5d79e035a29692b"
+    },
+    {
+      "path": "static/index.html",
+      "sha256": "40ba1934e06c0d8874059df300ac4b6c4fbf7ec3ad1179467f1c90a8bf2fbc2c"
+    },
+    {
+      "path": "static/style.css",
+      "sha256": "7a509674172e0e9b3ee808c23cb97c1cf136d76491d200e0db112a9e762a4602"
+    },
+    {
+      "path": "static/workspace.css",
+      "sha256": "0a7a2f05cc30eff8e67628105763a3965bdfeaa21f51337229f6767c4071d9cf"
+    },
+    {
+      "path": "tests/test_release.py",
+      "sha256": "b5ada3ccca6ef1217629250e119a938b83c53f3981e0d760a2adc7cf6f35a1ea"
+    },
+    {
+      "path": "tests/test_search_quality.py",
+      "sha256": "0c66eaccdf9f64cb1f035a41a574de234143021b2a4f07888068c0558c921a41"
+    },
+    {
+      "path": "translator.py",
+      "sha256": "e85e60129bcac3ac781ae66c0677014598714dcf80dae532ef44fac5b10ba382"
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DeepSeek 驱动的学术智能检索、语义扩展、AI 摘要概括与 Excel 导出平台">
+  <title>智研 · 学术智能检索台</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css?v=3">
+  <link rel="stylesheet" href="/workspace.css?v=3">
+</head>
+<body>
+  <a class="skip-link" href="#keywords">跳至检索</a>
+  <nav class="app-nav" aria-label="主导航">
+    <a class="nav-brand" href="#"><span class="brand-symbol" aria-hidden="true">研</span><strong>智研 <small>文献发现工作台</small></strong></a>
+    <div class="nav-links"><a class="active" href="#searchPanel">论文检索</a><a href="#researchGuide">检索指南</a><a href="#integrationPlan">功能与接口</a></div>
+    <span class="nav-local"><i></i> 本地工作空间</span>
+  </nav>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="hero-topline">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span class="eyebrow">RESEARCH STARTS WITH A BETTER QUESTION</span>
+        <span class="hero-version">学术发现 · 跨库检索</span>
+      </div>
+      <div class="hero-grid">
+        <div class="hero-main-copy">
+          <p class="kicker">为每一个研究问题，找到可靠的起点</p>
+          <h1>少一点搜索，<br>多一点<span>发现。</span></h1>
+          <p class="hero-copy">
+            连接多个学术数据库，以双语关键词探索文献，<br class="desktop-break">从第一篇论文，到有条理的研究清单。
+          </p>
+          <div class="hero-features">
+            <span>跨库去重</span><span>双语检索</span><span>AI 辅助阅读</span><span>Excel 导出</span>
+          </div>
+        </div>
+        <aside class="hero-ai-panel">
+          <span class="hero-ai-label">CONNECTED KNOWLEDGE</span>
+          <div class="knowledge-map" aria-hidden="true"><span class="map-core">智研</span><span class="map-node node-a">OpenAlex</span><span class="map-node node-b">Crossref</span><span class="map-node node-c">arXiv</span><span class="map-node node-d">PubMed</span><i></i></div>
+          <div class="hero-ai-stat"><strong id="sourceCount">6</strong><span>个学术数据源 · 一个检索入口</span></div>
+        </aside>
+      </div>
+    </header>
+
+    <details class="panel ai-settings" id="aiSettings">
+      <summary><span class="settings-spark">✦</span><strong>DeepSeek 研究助手</strong><span id="aiConnectionLabel">正在读取配置…</span><span class="settings-action">配置 <span aria-hidden="true">⌄</span></span></summary>
+    <section class="deepseek-config-shell" id="deepseekKeyPanel" aria-labelledby="deepseekKeyTitle">
+      <div class="deepseek-config-head">
+        <span class="key-panel-icon">AI</span>
+        <div>
+          <span class="config-eyebrow">DEEPSEEK INTELLIGENCE</span>
+          <strong id="deepseekKeyTitle">连接 DeepSeek 智能能力</strong>
+          <span id="deepseekKeyStatus">未配置，输入 Key 后即可使用 AI 选词与摘要概括</span>
+        </div>
+      </div>
+      <div class="deepseek-connected-card">
+        <span class="connected-check">✓</span>
+        <div>
+          <strong>DeepSeek 已连接</strong>
+          <span id="deepseekConnectedInfo">AI 语义选词与摘要概括已启用</span>
+        </div>
+        <button type="button" id="changeDeepseekKey" class="change-key-btn">更换 Key</button>
+      </div>
+      <div class="deepseek-config-body">
+        <div class="key-panel-form">
+          <div class="key-input-wrap">
+            <input id="deepseekApiKey" type="password" autocomplete="off" placeholder="输入 sk-..." aria-label="DeepSeek API 密钥">
+            <button id="toggleDeepseekKey" type="button">显示</button>
+          </div>
+          <select id="deepseekModel" aria-label="DeepSeek 模型">
+            <option value="deepseek-chat">deepseek-chat</option>
+            <option value="deepseek-reasoner">deepseek-reasoner</option>
+          </select>
+          <button id="saveDeepseekKey" class="key-save-btn" type="button">保存 Key</button>
+        </div>
+        <p class="key-panel-note">密钥保存在本机。启用 AI 时，检索词或论文摘要会发送给 DeepSeek 处理。</p>
+      </div>
+    </section>
+    </details>
+
+    <main>
+      <div class="workspace-grid">
+      <section class="panel search-panel" id="searchPanel">
+        <form id="searchForm" novalidate>
+          <div class="panel-heading">
+            <div>
+              <span class="step-number">01</span>
+              <h2>描述你的检索主题</h2>
+            </div>
+            <span class="section-caption">SEARCH WORKSPACE</span>
+          </div>
+
+          <label class="field field-keywords" for="keywords">
+            <span class="field-label">关键词 <em>必填</em></span>
+            <textarea id="keywords" name="keywords" rows="3" placeholder="你正在研究什么？例如：人工智能, 高等教育, 学习评价" aria-describedby="keywordHelp" required></textarea>
+          </label>
+          <div class="example-row">
+            <span>探索主题</span>
+            <button type="button" class="example-chip" data-example="人工智能, 医学">人工智能 + 医学 ↗</button>
+            <button type="button" class="example-chip" data-example="微生物, 衰老">微生物 + 衰老 ↗</button>
+            <button type="button" class="example-chip" data-example="碳排放, 供应链">碳排放 + 供应链 ↗</button>
+          </div>
+          <p class="keyword-help" id="keywordHelp">多个概念用逗号、分号或换行分隔；中英文均可。</p>
+
+          <div class="form-grid">
+            <fieldset class="field mini-field">
+              <legend class="field-label">关键词关系</legend>
+              <label class="choice">
+                <input type="radio" name="match_mode" value="all" checked>
+                <span><b>全部包含</b><small>结果更精确</small></span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="match_mode" value="any">
+                <span><b>任一包含</b><small>结果更全面</small></span>
+              </label>
+            </fieldset>
+
+            <div class="field mini-field">
+              <span class="field-label">发表年份</span>
+              <div class="year-row">
+                <input id="fromYear" name="from_year" type="number" min="1800" max="2100" placeholder="起始年" aria-label="起始年份">
+                <span>—</span>
+                <input id="toYear" name="to_year" type="number" min="1800" max="2100" placeholder="结束年" aria-label="结束年份">
+              </div>
+              <button class="recent-years" id="recentYears" type="button">近 5 年</button><small class="field-help">留空表示不限年份</small>
+            </div>
+
+            <label class="field mini-field" for="maxResults">
+              <span class="field-label">每个数据源上限</span>
+              <select id="maxResults" name="max_results">
+                <option value="5">5 条</option>
+                <option value="10" selected>10 条</option>
+                <option value="20">20 条</option>
+                <option value="50">50 条</option>
+              </select>
+              <small class="field-help">数据源越多，耗时越长</small>
+            </label>
+          </div>
+
+          <details class="advanced-search"><summary>精准检索设置 <span>匹配范围 · 排除词</span></summary><div class="advanced-grid">
+            <label class="field" for="matchScope"><span class="field-label">关键词匹配范围</span><select id="matchScope"><option value="title_abstract">标题与摘要</option><option value="title">仅标题（更严格）</option></select></label>
+            <label class="field" for="excludeKeywords"><span class="field-label">排除词</span><input id="excludeKeywords" type="text" placeholder="例如：review, protocol"><small class="field-help">以逗号分隔，在标题与摘要中排除字面命中</small></label>
+          </div></details>
+
+          <div class="source-heading">
+            <div>
+              <span class="step-number">02</span>
+              <h3>选择数据源 <span class="selected-count" id="selectedSourceCount" aria-live="polite">已选 0 个</span></h3>
+            </div>
+            <div class="source-actions">
+              <button type="button" id="selectAllSources">全选</button>
+              <button type="button" id="clearSources">清空</button>
+            </div>
+          </div>
+          <div class="source-presets" role="group" aria-label="按研究领域选择数据源"><span>推荐组合</span><button type="button" data-preset="general" aria-pressed="true">综合研究</button><button type="button" data-preset="computing" aria-pressed="false">计算机 / 数理</button><button type="button" data-preset="medical" aria-pressed="false">生物医学</button><button type="button" data-preset="all" aria-pressed="false">跨库广搜</button></div>
+          <div id="sourceGrid" class="source-grid" aria-live="polite"></div>
+
+          <div class="translation-note">
+            <span class="note-icon teal-icon">译</span>
+            <p><b>双语扩展，保留检索依据。</b>中文关键词会扩展英文学术词；结果区可查看扩展词与标题、摘要的命中情况。</p>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" id="searchBtn" class="primary-btn">
+              <span class="btn-spinner" aria-hidden="true"></span>
+              <span class="btn-text">开始检索</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+            <button type="button" id="cancelBtn" class="cancel-btn" disabled title="检索进行中可点击终止">
+              <span class="cancel-icon" aria-hidden="true"></span>
+              <span class="cancel-text">终止检索</span>
+            </button>
+            <button type="button" id="deepseekSearchToggle" class="deepseek-toggle-btn" disabled title="请先配置 DeepSeek API Key">
+              DeepSeek 选词：未配置
+            </button>
+            <button type="button" id="resetBtn" class="ghost-btn">重置条件</button>
+            <p id="formHint" class="form-hint" aria-live="polite"></p>
+          </div>
+          <div class="search-progress" id="searchProgress" role="status" hidden><span class="loading-orb" aria-hidden="true"></span><div><strong>正在探索学术数据库…</strong><p>双语扩展 → 多源检索 → 关键词校验 → 合并去重</p><small>等待数据源响应，通常需要数十秒。</small></div></div>
+        </form>
+      </section>
+
+      <aside class="research-sidebar" id="researchGuide">
+        <section class="guide-card"><span class="section-caption">A LITTLE GUIDANCE</span><h2>让好问题，<br>遇见好论文。</h2><p>从研究概念出发，逐步收敛你的文献范围。</p><ol class="guide-steps"><li><b>拆解研究问题</b><span>把主题拆成 2–3 个独立概念，使用逗号分隔。</span></li><li><b>搭配专业数据库</b><span>综合库发现方向，领域库补充专业文献。</span></li><li><b>核对原始证据</b><span>查看命中依据、DOI 与正式发表版本。</span></li></ol><div class="guide-footnote"><span>✧</span> 严格匹配无结果时，可切换「任一包含」扩大范围。</div></section>
+        <section class="coverage-card"><span class="section-caption">BUILT FOR YOUR WORKFLOW</span><h3>从发现到整理</h3><p>双语选词 <span>→</span> 跨库检索<br>摘要阅读 <span>→</span> Excel 清单</p><a href="#integrationPlan">查看功能与接口建议 ↗</a></section>
+      </aside>
+      </div>
+
+      <section id="summarySection" class="summary-section" hidden>
+        <div class="summary-grid">
+          <article class="summary-card accent">
+            <span class="summary-label">去重后论文</span>
+            <strong id="summaryTotal">0</strong>
+            <small>篇</small>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">原始记录</span>
+            <strong id="summaryRaw">0</strong>
+            <small>条</small>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">含摘要</span>
+            <strong id="summaryAbstract">0</strong>
+            <small>篇</small>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">开放获取</span>
+            <strong id="summaryOpen">0</strong>
+            <small>篇</small>
+          </article>
+        </div>
+        <div class="panel query-expansion-panel">
+          <div class="section-title-row">
+            <h2>中英检索词扩展</h2>
+            <span id="translationHint" class="muted-text"></span>
+          </div>
+          <div id="queryExpansionList" class="query-expansion-list"></div>
+        </div>
+        <div class="panel source-status-panel">
+          <div class="section-title-row">
+            <h2>数据源状态</h2>
+            <span id="elapsedText" class="muted-text"></span>
+          </div>
+          <div id="sourceStatusList" class="status-list"></div>
+        </div>
+      </section>
+
+      <section id="resultsSection" class="panel results-panel" hidden>
+        <div class="results-heading">
+          <div>
+            <span class="step-number">03</span>
+            <h2>整理检索结果</h2>
+            <p id="resultCount">共 0 条结果</p>
+          </div>
+          <div class="heading-actions">
+            <button type="button" id="summarizeBtn" class="summarize-btn" disabled title="请先配置 DEEPSEEK_API_KEY">
+              <span class="summarize-icon">✦</span>
+              DeepSeek 概括
+            </button>
+            <button type="button" id="exportBtn" class="export-btn">
+              <span class="export-icon">↓</span>
+              导出 Excel
+            </button>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label class="toolbar-search">
+            <span>⌕</span>
+            <input id="filterInput" type="search" placeholder="在当前结果中筛选论文题目、作者、期刊或摘要" aria-label="在当前检索结果中搜索">
+          </label>
+          <label class="toolbar-select">
+            <span>来源</span>
+            <select id="sourceFilter"><option value="">全部来源</option></select>
+          </label>
+          <label class="toolbar-select">
+            <span>排序</span>
+            <select id="sortSelect">
+              <option value="relevance">关键词相关度</option>
+              <option value="year_desc">年份从新到旧</option>
+              <option value="year_asc">年份从旧到新</option>
+              <option value="citations_desc">引用从高到低</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="result-quality-filters" role="group" aria-label="结果质量筛选"><span>快速筛选</span><label><input type="checkbox" id="onlyAbstract"> 有摘要</label><label><input type="checkbox" id="onlyOpenAccess"> 开放获取</label><label><input type="checkbox" id="onlyDoi"> 有 DOI</label><span class="quality-note">仅筛选本次已获取结果</span></div>
+
+        <div class="table-wrap">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th class="col-index">#</th>
+                <th class="col-paper">论文</th>
+                <th class="col-year">年份</th>
+                <th class="col-venue">期刊/会议</th>
+                <th class="col-metric">2年平均被引</th>
+                <th class="col-metric">被引</th>
+                <th class="col-link">链接</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody"></tbody>
+          </table>
+        </div>
+        <div id="tableEmpty" class="table-empty" hidden>
+          <span>⌕</span>
+          <p>没有符合条件的论文，可减少关键词、切换「任一包含」或清除结果筛选。</p>
+        </div>
+      </section>
+      <section class="panel integration-panel" id="integrationPlan" aria-labelledby="integrationTitle">
+        <div class="section-title-row"><div><span class="section-caption">WHAT’S NEXT</span><h2 id="integrationTitle">让检索更完整，也更可信</h2></div><span class="roadmap-label">建议方案 · 以下尚未接入</span></div>
+        <div class="integration-grid">
+          <article><span class="integration-number">01 / 全面性</span><h3>引用追踪与相似论文</h3><p>从种子论文追踪参考文献和后续引用，补充关键词检索遗漏。</p><a href="https://api.semanticscholar.org/api-docs/graph" target="_blank" rel="noreferrer">Semantic Scholar Graph API ↗</a></article>
+          <article><span class="integration-number">02 / 全文覆盖</span><h3>机构仓储与开放全文</h3><p>用 CORE 补充仓储文献，按 DOI 查询 Unpaywall 获取合法开放版本。</p><a href="https://core.ac.uk/services/api" target="_blank" rel="noreferrer">CORE API ↗</a><a href="https://data.unpaywall.org/products/api" target="_blank" rel="noreferrer">Unpaywall API ↗</a></article>
+          <article><span class="integration-number">03 / 准确性</span><h3>元数据与发表状态核验</h3><p>核对 DOI、作者、期刊与发表更新，为撤稿或更正提供可追溯提示。</p><a href="https://www.crossref.org/documentation/retrieve-metadata/rest-api/" target="_blank" rel="noreferrer">Crossref REST API ↗</a></article>
+          <article><span class="integration-number">04 / 可复现</span><h3>检索记录与增量更新</h3><p>记录检索式、时间、分页和失败来源，保存策略并查找后续新论文。</p><span class="integration-pending">建议新增：检索历史 / 分页任务接口</span></article>
+        </div><p class="integration-note">接入建议需结合授权与配额实施；数据源返回条数不代表该领域全部文献。Unpaywall 用于 DOI 查找开放版本。</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Paper Search Web · 使用 OpenAlex、Crossref、arXiv、Semantic Scholar、PubMed、Europe PMC 的公开接口</p>
+      <p>请遵守各数据源使用条款，并核对论文的正式发表版本。</p>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js?v=3" defer></script>
+</body>
+</html>
+
